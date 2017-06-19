@@ -9,9 +9,7 @@ const index = async (req, res, next) => {
 }
 
 const create = async (req, res, next) => {
-  const user = await User.create({
-    username: req.body.username
-  })
+  const user = await User.create(req.body)
 
   res.json({
     user
@@ -32,9 +30,17 @@ const destroy = async (req, res, next) => {
   res.redirect('/')
 }
 
+const update = async (req, res, next) => {
+  const user = await User.findById(req.params.id)
+  await user.update(req.body)
+  res.json({
+    user
+  })
+}
 module.exports = {
   index,
   create,
   show,
-  destroy
+  destroy,
+  update
 }
