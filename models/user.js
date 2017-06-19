@@ -11,6 +11,10 @@ module.exports = function (sequelize, DataTypes) {
       foreignKey: 'artistId',
       as: 'artworks'
     })
+    User.belongsToMany(models.Artwork, {
+      through: 'UserArtwork',
+      unique: true
+    })
   }
   return User
 }
