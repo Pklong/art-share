@@ -9,12 +9,12 @@ module.exports = {
       },
       title: {
         allowNull: false,
-        unique: true,
+        unique: 'userId',
         type: Sequelize.STRING
       },
       imageUrl: {
         allowNull: false,
-        unique: true,
+        unique: 'userId',
         type: Sequelize.STRING
       },
       userId: {

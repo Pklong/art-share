@@ -3,18 +3,18 @@ module.exports = function (sequelize, DataTypes) {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: 'artistId'
     },
     imageUrl: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: 'artistId'
     }
   })
 
   Artwork.associate = function (models) {
     Artwork.belongsTo(models.User, {
-      foreignKey: 'todoId',
+      foreignKey: 'artistId',
       onDelete: 'CASCADE'
     })
   }
