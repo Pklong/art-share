@@ -9,12 +9,10 @@ module.exports = {
       },
       title: {
         allowNull: false,
-        unique: 'artistId',
         type: Sequelize.STRING
       },
       imageUrl: {
         allowNull: false,
-        unique: 'artistId',
         type: Sequelize.STRING
       },
       userId: {
@@ -24,7 +22,7 @@ module.exports = {
         references: {
           model: 'Users',
           key: 'id',
-          as: 'artistId'
+          as: 'userId'
         }
       },
       createdAt: {

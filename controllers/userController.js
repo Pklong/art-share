@@ -27,16 +27,19 @@ const show = async (req, res, next) => {
 const destroy = async (req, res, next) => {
   const user = await User.findById(req.params.id)
   await user.destroy()
+
   res.redirect('/')
 }
 
 const update = async (req, res, next) => {
   const user = await User.findById(req.params.id)
   await user.update(req.body)
+
   res.json({
     user
   })
 }
+
 module.exports = {
   index,
   create,
