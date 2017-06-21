@@ -16,8 +16,8 @@ module.exports = function (sequelize, DataTypes) {
       onDelete: 'CASCADE'
     })
     Artwork.belongsToMany(models.User, {
-      through: 'UserArtwork',
-      unique: true
+      through: models.ArtworkShare,
+      foreignKey: 'artworkId'
     })
   }
   return Artwork

@@ -14,6 +14,7 @@ app.use(bodyParser.json())
 app.use(morgan('combined'))
 app.use('/users', routes.userRouter)
 app.use('/artworks', routes.artworkRouter)
+app.use('/artwork_shares', routes.artworkShareRouter)
 app.use(errorHandlers.developmentErrors)
 
 app.listen(3000, () => {

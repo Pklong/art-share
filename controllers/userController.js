@@ -25,15 +25,22 @@ const show = async (req, res, next) => {
 }
 
 const destroy = async (req, res, next) => {
-  const user = await User.findById(req.params.id)
-  await user.destroy()
+  await User.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
 
   res.redirect('/')
 }
 
 const update = async (req, res, next) => {
+  await User.update(req.body, {
+    where: {
+      id: req.params.id
+    }
+  })
   const user = await User.findById(req.params.id)
-  await user.update(req.body)
 
   res.json({
     user

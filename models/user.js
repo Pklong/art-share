@@ -6,13 +6,14 @@ module.exports = function (sequelize, DataTypes) {
       unique: true
     }
   })
+
   User.associate = function (models) {
     User.hasMany(models.Artwork, {
       foreignKey: 'userId'
     })
     User.belongsToMany(models.Artwork, {
-      through: 'UserArtwork',
-      unique: true
+      through: models.ArtworkShare,
+      foreignKey: 'userId'
     })
   }
   return User

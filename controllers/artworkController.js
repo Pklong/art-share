@@ -25,15 +25,23 @@ const show = async (req, res, next) => {
 }
 
 const destroy = async (req, res, next) => {
-  const artwork = await Artwork.findById(req.params.id)
-  await artwork.destroy()
+  await Artwork.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
 
   res.redirect('/')
 }
 
 const update = async (req, res, next) => {
+  await Artwork.update(req.body, {
+    where: {
+      id: req.params.id
+    }
+  })
+
   const artwork = await Artwork.findById(req.params.id)
-  await artwork.update(req.body)
 
   res.json({
     artwork
