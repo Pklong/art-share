@@ -2,13 +2,11 @@ module.exports = function (sequelize, DataTypes) {
   const Artwork = sequelize.define('Artwork', {
     title: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: 'userId'
+      allowNull: false
     },
     imageUrl: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: 'userId'
+      allowNull: false
     }
   })
 
