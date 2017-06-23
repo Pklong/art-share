@@ -8,12 +8,9 @@ module.exports = function (sequelize, DataTypes) {
   })
 
   User.associate = function (models) {
-    User.hasMany(models.Artwork, {
-      foreignKey: 'userId'
-    })
+    User.hasMany(models.Artwork)
     User.belongsToMany(models.Artwork, {
-      through: models.ArtworkShare,
-      foreignKey: 'userId'
+      through: models.ArtworkShare
     })
   }
   return User

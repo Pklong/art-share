@@ -12,12 +12,10 @@ module.exports = function (sequelize, DataTypes) {
 
   Artwork.associate = function (models) {
     Artwork.belongsTo(models.User, {
-      foreignKey: 'userId',
       onDelete: 'CASCADE'
     })
     Artwork.belongsToMany(models.User, {
-      through: models.ArtworkShare,
-      foreignKey: 'artworkId'
+      through: models.ArtworkShare
     })
   }
   return Artwork
